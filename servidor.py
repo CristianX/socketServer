@@ -11,5 +11,9 @@ while True:
     print ("Nueva conexiónn establecida!")
     print (addr)
 
-    conexion.send("Hola, te saludo desde el servidor!")
+    peticion = conexion.recv(1024)
+    print (peticion)
+
+    txt = "Hola desdel el servidor!"
+    conexion.send(txt.encode("ascii"))
     conexion.close()
